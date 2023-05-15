@@ -1,0 +1,424 @@
+/***** -------------------------------------------------------------------------
+Global styles, Typography, and Colors
+*****/
+
+:root {
+    /* Variables */
+    --thin: 2px;
+    --base-unit: 4px;
+    --standard-padding: 8px;
+
+    --font-family:
+        'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+        'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --font-size-small: calc(2.5 * var(--base-unit));
+    --font-size-default: calc(3.5 * var(--base-unit));
+    --font-size-medium: calc(4 * var(--base-unit));
+    --font-size-large: calc(6 * var(--base-unit));
+
+    --color-text-primary: black;
+    --color-text-secondary: silver;
+    --color-background: white;
+    --color-border: lightgray;
+
+    --icon-color: silver;
+    --icon-hover-color: gray;
+}
+
+/***** -------------------------------------------------------------------------
+Resetting the styles
+*****/
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+img,
+ul,
+ol,
+li,
+article,
+section,
+button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+article,
+section {
+    display: block;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: default;
+    padding: 0;
+}
+
+* {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+/***** -------------------------------------------------------------------------
+General styling
+*****/
+
+html,
+body {
+    background-color: var(--color-background);
+    font-family: var(--font-family);
+    font-size: var(--font-size-default);
+    color: var(--color-text-primary);
+    width: 100%;
+    height: 100%;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+header {
+    height: calc(10 * var(--base-unit));
+    border-bottom: var(--base-unit) solid lightgray;
+}
+
+main {
+    background-color: gainsboro;
+    overflow: auto;
+    height: calc(100% - (20 * var(--base-unit) + var(--thin) + var(--base-unit)));
+}
+
+footer {
+    background-color: white;
+    height: calc(10 * var(--base-unit));
+    border-top: var(--thin) solid orange;
+}
+
+/* Text */
+h1 {
+    font-size: var(--font-size-large);
+    font-weight: 200;
+    line-height: 1;
+    vertical-align: bottom;
+    margin-left: calc(5 * var(--base-unit));
+    ;
+}
+
+.bild h2 {
+    font-size: var(--font-size-medium);
+    font-weight: 400;
+    position: absolute;
+    top: 0;
+    padding-top: calc(7 * var(--base-unit));
+}
+
+/***** -------------------------------------------------------------------------
+Navigation
+*****/
+
+/* navigation with parts (for left/right align) */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.nav__part {
+    display: flex;
+    align-items: center;
+}
+
+/***** -------------------------------------------------------------------------
+Icons and Buttons
+*****/
+
+.svg-icon {
+    fill: none;
+    stroke: var(--icon-color);
+    stroke-width: var(--thin);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.15s;
+}
+
+button {
+    width: calc(10 * var(--base-unit));
+    height: calc(10 * var(--base-unit));
+    padding: var(--standard-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+button .svg-icon {
+    transition: stroke 0.15s;
+}
+
+button:hover .svg-icon {
+    stroke: var(--icon-hover-color);
+}
+
+#list {
+    display: none;
+}
+
+#grid {
+    display: inline-block;
+}
+
+/***** -------------------------------------------------------------------------
+Bilder
+*****/
+
+.bilder {
+    margin-top: calc(10/3 * var(--base-unit));
+    height: calc(100% - calc(10/3 * var(--base-unit)));
+    background-color: white;
+}
+
+/* line after each list element except the last one */
+ul li:not(:last-child) {
+    border-bottom: 2px solid gainsboro;
+}
+
+.bild {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    padding: var(--standard-padding);
+    height: 100%;
+    align-items: stretch;
+    position: relative;
+}
+
+.bild-card-img {
+    width: calc(21 * var(--base-unit));
+    min-width: calc(21 * var(--base-unit));
+    height: calc(21 * var(--base-unit));
+    min-height: calc(21 * var(--base-unit));
+    object-fit: cover;
+    margin-right: var(--standard-padding);
+}
+
+
+.bild-info {
+    width: 100%;
+}
+
+
+.bild-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    font-size: var(--font-size-small);
+    color: silver;
+}
+
+.bild-name-and-upload {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#play-icon {
+    width: calc(2 * var(--base-unit));
+    height: calc(2 * var(--base-unit));
+    fill: var(--icon-color);
+}
+
+.bild-tags {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--base-unit);
+}
+
+.bild .options-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+
+/***** -------------------------------------------------------------------------
+Bilder - toggle
+*****/
+
+/* line after each list element except the last one */
+.toggle li:not(:last-child) {
+    border-bottom: 2px solid gainsboro;
+}
+
+.toggle li:not(:last-child) {
+    border-bottom: none;
+}
+
+.toggle {
+    display: grid;
+    grid-template-columns: repeat(3, calc((100% - 2 * var(--standard-padding)) / 3));
+    gap: var(--standard-padding);
+    margin: calc(2.5 * var(--base-unit)) auto;
+    padding: var(--standard-padding);
+}
+
+@media screen and (max-width:300px) {
+    .toggle {
+        grid-template-columns: repeat(2, calc((100% - var(--standard-padding)) / 2));
+    }
+}
+
+@media screen and (min-width:420px) {
+    .toggle {
+        grid-template-columns: repeat(4, calc((100% - 3 * var(--standard-padding)) / 4));
+    }
+}
+
+@media screen and (min-width:720px) {
+    .toggle {
+        grid-template-columns: repeat(5, calc((100% - 4 * var(--standard-padding)) / 5));
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .toggle {
+        grid-template-columns: repeat(6, calc((100% - 5 * var(--standard-padding)) / 6));
+    }
+}
+
+.toggle .bild {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    padding: var(--standard-padding);
+    height: 100%;
+    align-items: stretch;
+    position: relative;
+}
+
+.toggle .bild {
+    position: relative;
+    padding-bottom: 100%;
+    height: 0;
+}
+
+.toggle .bild-card-img {
+    width: calc(21 * var(--base-unit));
+    height: calc(21 * var(--base-unit));
+    margin-right: var(--standard-padding);
+}
+
+.toggle .bild-card-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.toggle .bild-info {
+    width: 100%;
+}
+
+.toggle .bild-info {
+    display: none;
+}
+
+.toggle .bild-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    font-size: var(--font-size-small);
+    color: silver;
+}
+
+.toggle .bild-name-and-upload {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.toggle #play-icon {
+    width: calc(2 * var(--base-unit));
+    height: calc(2 * var(--base-unit));
+    fill: var(--icon-color);
+}
+
+.toggle .bild-tags {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--base-unit);
+}
+
+.toggle .bild .options-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.toggle .bild .options-btn .svg-icon {
+    stroke: white;
+}
+
+.toggle .bild .options-btn:hover .svg-icon {
+    stroke: orange;
+}
+
+/***** -------------------------------------------------------------------------
+Animation
+*****/
+
+.fadeOut {
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.fadeIn {
+    opacity: 1;
+    transition: opacity 1s;
+}
